@@ -57,13 +57,13 @@ public class PBTest {
 	
 	@Test
 	public void pbiHasUniqueOrder() throws Exception {
-		
-		PBI[] a = new PBI[] {new PBI("1"), new PBI("2"), new PBI("1")};
-		
+		// given
+		PBI[] a = new PBI[] {new PBI("1"), new PBI("2"), new PBI("1")};		
 		pbList.addAtCertainPosition(a[0], 0);
 		pbList.addAtCertainPosition(a[1], 0);
 		pbList.addAtCertainPosition(a[2], 0);
 
+		// then
 		assertThat(pbList.getPBIOrder(a[0]), is(not(equalTo(pbList.getPBIOrder(a[1])))));
 		assertThat(pbList.getPBIOrder(a[1]), is(not(equalTo(pbList.getPBIOrder(a[2])))));
 		assertThat(pbList.getPBIOrder(a[2]), is(not(equalTo(pbList.getPBIOrder(a[0])))));		
